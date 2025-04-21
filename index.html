@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع EZX</title>
+    <style>
+        body {
+            background: #111;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .logo {
+            font-size: 32px;
+            margin: 20px;
+            font-weight: bold;
+            animation: colorChange 5s infinite alternate;
+        }
+
+        @keyframes colorChange {
+            0% { color: red; }
+            20% { color: orange; }
+            40% { color: yellow; }
+            60% { color: green; }
+            80% { color: cyan; }
+            100% { color: violet; }
+        }
+
+        .welcome, .finalMessage {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.95);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .welcome h1, .finalMessage h1 {
+            margin-bottom: 20px;
+        }
+
+        .welcome p, .finalMessage p {
+            margin: 10px 0;
+        }
+
+        .welcome button {
+            padding: 10px 25px;
+            background: #0f0;
+            border: none;
+            color: black;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .finalMessage {
+            display: none;
+        }
+
+        .main-content {
+            display: none;
+        }
+
+        .button {
+            display: block;
+            margin: 20px auto;
+            padding: 15px 25px;
+            background: #333;
+            color: yellow;
+            text-decoration: none;
+            border-radius: 8px;
+            width: 200px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background: #444;
+        }
+    </style>
+</head>
+<body>
+
+<!-- شاشة الترحيب -->
+<div class="welcome" id="welcomeScreen">
+    <h1>مرحباً بك في موقعنا EZX</h1>
+    <p>موقعنا مختص ل هاكات و سكربتات</p>
+    <p>قريباً رح نفتح الموقع.</p>
+    <p>اذا حاب تاخذ السكربتات والهاكات اضغط على زر متابعه</p>
+    <button onclick="showFinalMessage()">متابعة</button>
+</div>
+
+<!-- الرسالة بعد الضغط -->
+<div class="finalMessage" id="finalMessage">
+    <h1>اهلا بك لقد ضغطت على الزر {متابعه}</h1>
+    <p>الان سوف يدخلك الموقع الرسمي ولاكن لا تنسى ترسل رابط السيرفر لجميع اصدقائك حتى يمكنهم ان يجربون الهاكات الرائعة</p>
+    <p>انتظر 5 ثواني حتى يدخلك</p>
+</div>
+
+<!-- محتوى الموقع -->
+<div class="main-content" id="mainContent">
+    <div class="logo">EZX</div>
+
+    <a onclick="showNotReady()" class="button">تطبيقات PC</a>
+    <a onclick="showNotReady()" class="button">تطبيقات Android</a>
+    <a onclick="showNotReady()" class="button">تطبيقات iOS</a>
+    <a onclick="showNotReady()" class="button">حماية وأمان</a>
+    <a href="https://discord.gg/b2DXFdC7" class="button" target="_blank">ديسكورد</a>
+    <a href="https://www.youtube.com/@A_3cx" class="button" target="_blank">يوتيوب</a>
+</div>
+
+<script>
+    function showFinalMessage() {
+        document.getElementById('welcomeScreen').style.display = 'none';
+        document.getElementById('finalMessage').style.display = 'flex';
+        // بعد 5 ثواني يفتح الموقع
+        setTimeout(enterSite, 5000);
+    }
+
+    function enterSite() {
+        document.getElementById('finalMessage').style.display = 'none';
+        document.getElementById('mainContent').style.display = 'block';
+    }
+
+    function showNotReady() {
+        alert("للأسف الشديد ان الموقع ليس جاهزاً بعد يرجى الانتظار");
+    }
+</script>
+
+</body>
+</html>
