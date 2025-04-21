@@ -82,9 +82,37 @@
         .button:hover {
             background: #444;
         }
+
+        /* زر القائمة */
+        .menu-btn {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background: transparent;
+            border: 2px solid white;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10000;
+        }
+
+        .menu-btn span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 4px 0;
+        }
     </style>
 </head>
 <body>
+
+<!-- زر القائمة -->
+<button class="menu-btn" onclick="menuMessage()">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
 
 <!-- شاشة الترحيب -->
 <div class="welcome" id="welcomeScreen">
@@ -105,7 +133,6 @@
 <!-- محتوى الموقع -->
 <div class="main-content" id="mainContent">
     <div class="logo">EZX</div>
-
     <a onclick="showNotReady()" class="button">تطبيقات PC</a>
     <a onclick="showNotReady()" class="button">تطبيقات Android</a>
     <a onclick="showNotReady()" class="button">تطبيقات iOS</a>
@@ -118,7 +145,6 @@
     function showFinalMessage() {
         document.getElementById('welcomeScreen').style.display = 'none';
         document.getElementById('finalMessage').style.display = 'flex';
-        // بعد 5 ثواني يفتح الموقع
         setTimeout(enterSite, 5000);
     }
 
@@ -129,6 +155,10 @@
 
     function showNotReady() {
         alert("للأسف الشديد ان الموقع ليس جاهزاً بعد يرجى الانتظار");
+    }
+
+    function menuMessage() {
+        alert(" للأسف الشديد الموقع ليس مكتمل يرجى الانتضار و مراقبه ديسكورد");
     }
 </script>
 
